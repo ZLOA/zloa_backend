@@ -36,8 +36,16 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.1'
 	
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '3.2.3'
+	
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// 자바 컴파일 시 파라미터 플래그 추가 -> 매개변수 이름 유지
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-parameters'
 }
